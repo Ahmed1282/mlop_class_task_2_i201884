@@ -13,8 +13,9 @@ pipeline {
         stage('Set up Python') {
             steps {
                 script {
-                    // Assuming Python is already installed in your Jenkins environment
-                    sh 'python3.x --version' // Check Python version
+                    // Install Python
+                    sh 'apt-get update && apt-get install -y python3'
+                    sh 'python3 --version' // Check Python version
                 }
             }
         }
