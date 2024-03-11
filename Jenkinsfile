@@ -14,8 +14,7 @@ pipeline {
             steps {
                 script {
                     // Install Python
-                    sh 'apt-get update && apt-get install -y python3'
-                    sh 'python3 --version' // Check Python version
+                    sh 'apt-get update && apt-get install -y python3 python3-pip'
                 }
             }
         }
@@ -23,7 +22,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh 'make install'
+                    sh 'pip3 install -r requirements.txt'
                 }
             }
         }
